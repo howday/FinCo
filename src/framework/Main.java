@@ -1,4 +1,4 @@
-package framwork;
+package framework;
 
 public class Main {
 
