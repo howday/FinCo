@@ -12,7 +12,11 @@ public class AccountCreatedEventHandler implements IEventHandler {
 		AccountCreatedEvent myevt = (AccountCreatedEvent) evt;
 
 		DStructure dis = DStructure.getInstance();
+		
 		dis.addAccount(myevt.account);
+		
+		System.out.println(dis.getList().get(0).getAccountNumber());
+		
 
 	}
 }

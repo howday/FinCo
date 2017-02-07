@@ -16,11 +16,11 @@ public class InterestAddedEvent implements IDomainEvent {
 
 	@Override
 	public int hashCode() {
-		return 1;
+		return getClass().getSimpleName().hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		return true;
+		return getClass().getSimpleName().equals(obj.getClass().getSimpleName());
 	}
 }

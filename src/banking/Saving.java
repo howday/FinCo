@@ -1,6 +1,8 @@
 package banking;
 
+import banking.events.InterestAddedEvent;
 import framework.Account;
+import framework.DomainEventManager;
 
 public class Saving extends Account {
 
@@ -9,6 +11,7 @@ public class Saving extends Account {
 	@Override
 	public void addInterest() {
 		super.setCurrentBalance(getCurrentBalance() * RATE);
+		DomainEventManager.raise(new InterestAddedEvent(this));
 	}
 
 	@Override

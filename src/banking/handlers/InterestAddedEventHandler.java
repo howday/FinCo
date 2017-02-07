@@ -1,6 +1,8 @@
 package banking.handlers;
 
 import banking.events.InterestAddedEvent;
+import datastructure.DStructure;
+import framework.IAccount;
 import framework.IDomainEvent;
 import framework.IEventHandler;
 
@@ -11,7 +13,13 @@ public class InterestAddedEventHandler implements IEventHandler {
 		InterestAddedEvent myevt = (InterestAddedEvent) evt;
 
 		System.out.println("Do anything yo want with me ");
-		System.out.println("Do anything yo want with me " + myevt.account.getBalance());
+		for (IAccount account : DStructure.getInstance().getList()) {
+
+			if (account.getAccountNumber().equals(myevt.account.getAccountNumber())) {
+				account.setCurrentBalance(myevt.account.getCurrentBalance());
+			}
+
+		}
 
 	}
 

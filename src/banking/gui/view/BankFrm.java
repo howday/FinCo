@@ -15,9 +15,12 @@ import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
+import banking.events.AccountCreatedEvent;
 import banking.events.InterestAddedEvent;
 import banking.gui.controllers.BankFrmController;
+import banking.handlers.AccountCreatedEventHandler;
 import banking.handlers.InterestAddedEventHandler;
+import framework.Account;
 import framework.DomainEventManager;
 
 /**
@@ -37,7 +40,11 @@ public class BankFrm extends javax.swing.JFrame {
 
 	public BankFrm() {
 		myframe = this;
+		/**
+		 * TODO: Add all event and handlers dynamic
+		 */
 		DomainEventManager.addHandler(new InterestAddedEvent(), new InterestAddedEventHandler());
+		DomainEventManager.addHandler(new AccountCreatedEvent(), new AccountCreatedEventHandler());
 		createDummyData();
 		setTitle("Bank Application.");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
@@ -188,7 +195,7 @@ public class BankFrm extends javax.swing.JFrame {
 				(new BankFrmController()).JButtonWithdraw_actionPerformed(event);
 			else if (object == JButton_Addinterest)
 				(new BankFrmController()).JButtonAddinterest_actionPerformed(event);
-			
+
 			updateView();
 
 		}
@@ -196,22 +203,29 @@ public class BankFrm extends javax.swing.JFrame {
 
 	public void updateView() {
 		DStructure dis = DStructure.getInstance();
-		for( int i = model.getRowCount() - 1; i >= 0; i-- ) {
-	        model.removeRow(i);
-	    }
-		List<IAccount> list = dis.getList();
-		for (IAccount a : list) {
-			rowdata[0] = "S";
-			rowdata[1] = "S";
-			rowdata[2] = "S";
-			rowdata[3] = "S";
-			rowdata[4] = "S";
-			rowdata[5] = "S";
-			rowdata[6] = "S";
-			
-			 model.addRow(rowdata);
+		for (int i = model.getRowCount() - 1; i >= 0; i--) {
+			model.removeRow(i);
 		}
-	
+		List<IAccount> list = dis.getList();
+		for (IAccount account : list) {
+			
+			// model.addColumn("AccountNr");
+			// model.addColumn("Name");
+			// model.addColumn("City");
+			// model.addColumn("P/C");
+			// model.addColumn("Ch/S");
+			// model.addColumn("Amount");
+			rowdata[0] = account.getAccountNumber();
+			rowdata[1] = account.getCustomer().getName();
+			rowdata[2] = account.getCustomer().getCity();
+			rowdata[3] = account.getCustomer().getCustomerType();
+			rowdata[4] = account.getType();
+			rowdata[5] = account.getCurrentBalance();
+			rowdata[6] = "S";
+
+			model.addRow(rowdata);
+		}
+
 	}
 
 }

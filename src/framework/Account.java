@@ -6,14 +6,23 @@ public abstract class Account implements IAccount {
 
 	List<IEntry> entryList;
 	double rate;
-	double currentBalance;
-	ICustomer customer;
+	double currentBalance = 1.0d;
+	String accountNumber;
+	Customer customer;
 
-	public ICustomer getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(ICustomer customer) {
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 

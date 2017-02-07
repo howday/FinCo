@@ -12,22 +12,23 @@ public class Company extends Customer implements IPerson {
 		this.numberOfEmployees = numberOfEmployees;
 	}
 
-	@Override
-	public void getBirthDate() {
-		System.out.println("getting birth from Company!!");
-
-	}
-
-	@Override
-	public void setBirthDate() {
-		System.out.println("setting birth from Company!!");
-
-	}
 
 	@Override
 	public String getCustomerType() {
 		// TODO Auto-generated method stub
 		return "C";
+	}
+
+	@Override
+	public String getBirthDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setBirthDate(String birthDate) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

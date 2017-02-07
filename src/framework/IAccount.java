@@ -13,11 +13,16 @@ public interface IAccount {
 
 	void withdraw(double amount);
 
-	double getBalance();
-	
+	double getCurrentBalance();
+
 	void addInterest();
-	
+
 	String getType();
 
+	String getAccountNumber();
+
+	Customer getCustomer();
+	
+	void setCurrentBalance(double currentBalance);
 
 }

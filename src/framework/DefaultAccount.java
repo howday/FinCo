@@ -27,4 +27,10 @@ public class DefaultAccount extends Account {
 		return "D";
 	}
 
+	@Override
+	public void setCurrentBalance(double balance) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
