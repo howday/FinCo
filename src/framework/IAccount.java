@@ -14,5 +14,10 @@ public interface IAccount {
 	void withdraw(double amount);
 
 	double getBalance();
+	
+	void addInterest();
+	
+	String getType();
+
 
 }

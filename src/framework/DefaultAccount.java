@@ -15,4 +15,16 @@ public class DefaultAccount extends Account {
 		return 0.0d;
 	}
 
+	@Override
+	public void addInterest() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "D";
+	}
+
 }

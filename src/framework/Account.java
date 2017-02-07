@@ -5,6 +5,32 @@ import java.util.List;
 public abstract class Account implements IAccount {
 
 	List<IEntry> entryList;
+	double rate;
+	double currentBalance;
+
+	public List<IEntry> getEntryList() {
+		return entryList;
+	}
+
+	public void setEntryList(List<IEntry> entryList) {
+		this.entryList = entryList;
+	}
+
+	public double getRate() {
+		return rate;
+	}
+
+	public void setRate(double rate) {
+		this.rate = rate;
+	}
+
+	public double getCurrentBalance() {
+		return currentBalance;
+	}
+
+	public void setCurrentBalance(double currentBalance) {
+		this.currentBalance = currentBalance;
+	}
 
 	public void deposit(double amount) {
 		System.out.println("deposited!!");
