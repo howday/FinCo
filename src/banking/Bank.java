@@ -3,6 +3,7 @@ package banking;
 import java.util.ArrayList;
 import java.util.List;
 
+import datastructure.DStructure;
 import framework.DefaultAccount;
 import framework.IAccount;
 
@@ -11,9 +12,8 @@ public class Bank {
 	List<IAccount> accounts;
 
 	public Bank() {
-		this.accounts = new ArrayList<>();
-		IAccount acc=new DefaultAccount();
-		accounts.add(acc);
+		DStructure dis=DStructure.getInstance();
+		this.accounts = dis.getList();
 		}
 
 	public void addAccount(IAccount account) {

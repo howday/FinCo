@@ -4,8 +4,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.table.DefaultTableModel;
-
+import java.util.List;
 import banking.gui.controllers.*;
+import datastructure.DStructure;
+import framework.IAccount;
 
 import javax.swing.*;
 
@@ -16,7 +18,7 @@ public class BankFrm extends javax.swing.JFrame {
 	/****
 	 * init variables in the object
 	 ****/
-	String accountnr, clientName, street, city, zip, state, accountType, clientType, amountDeposit;
+
 	boolean newaccount;
 	private DefaultTableModel model;
 	private JTable JTable1;
@@ -171,8 +173,30 @@ public class BankFrm extends javax.swing.JFrame {
 				(new BankFrmController()).JButtonWithdraw_actionPerformed(event);
 			else if (object == JButton_Addinterest)
 				(new BankFrmController()).JButtonAddinterest_actionPerformed(event);
+			
+			updateView();
 
 		}
+	}
+
+	public void updateView() {
+		DStructure dis = DStructure.getInstance();
+		for( int i = model.getRowCount() - 1; i >= 0; i-- ) {
+	        model.removeRow(i);
+	    }
+		List<IAccount> list = dis.getList();
+		for (IAccount a : list) {
+			rowdata[0] = "S";
+			rowdata[1] = "S";
+			rowdata[2] = "S";
+			rowdata[3] = "S";
+			rowdata[4] = "S";
+			rowdata[5] = "S";
+			rowdata[6] = "S";
+			
+			 model.addRow(rowdata);
+		}
+	
 	}
 
 }

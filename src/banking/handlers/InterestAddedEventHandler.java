@@ -11,7 +11,7 @@ public class InterestAddedEventHandler implements IEventHandler {
 		InterestAddedEvent myevt= (InterestAddedEvent) evt;
 		
 		
-		System.out.println("Do anything yo want with me "+myevt.account.getBalance());
+		System.out.println("Do anything yo want with me ");
 		
 	}
 

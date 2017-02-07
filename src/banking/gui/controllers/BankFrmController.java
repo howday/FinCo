@@ -18,6 +18,7 @@ import banking.gui.view.JDialog_Withdraw;
 
 public class BankFrmController {
 	public void JButtonPerAC_actionPerformed(java.awt.event.ActionEvent event) {
+		
 		JDialog_AddPAcc pac = new JDialog_AddPAcc();
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
@@ -57,4 +58,7 @@ public class BankFrmController {
 		// TODO Auto-generated method stub
 		System.exit(0);
 	}
+	
+
+
 }
