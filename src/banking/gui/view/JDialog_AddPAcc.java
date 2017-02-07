@@ -11,6 +11,7 @@ import banking.gui.controllers.*;
 public class JDialog_AddPAcc extends javax.swing.JDialog {
 	private JDialog_AddPAcc parentframe;
 	public String accountnr, clientName, street, city, zip, state, accountType;
+	
 
 	public JDialog_AddPAcc() {
 		super();
@@ -133,6 +134,7 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 			parentframe.city = JTextField_CT.getText();
 			parentframe.zip = JTextField_ZIP.getText();
 			parentframe.state = JTextField_ST.getText();
+			
 			Object object = event.getSource();
 			if (object == JRadioButton_Chk)
 				(new AddPAccController(parentframe)).JRadioButtonChk_mouseClicked(event);

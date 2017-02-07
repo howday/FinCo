@@ -8,8 +8,17 @@ import java.util.List;
 import banking.gui.controllers.*;
 import datastructure.DStructure;
 import framework.IAccount;
+import java.awt.BorderLayout;
 
-import javax.swing.*;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
+
+import banking.events.InterestAddedEvent;
+import banking.gui.controllers.BankFrmController;
+import banking.handlers.InterestAddedEventHandler;
+import framework.DomainEventManager;
 
 /**
  * A basic JFC based application.
@@ -28,7 +37,8 @@ public class BankFrm extends javax.swing.JFrame {
 
 	public BankFrm() {
 		myframe = this;
-
+		DomainEventManager.addHandler(new InterestAddedEvent(), new InterestAddedEventHandler());
+		createDummyData();
 		setTitle("Bank Application.");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -93,6 +103,11 @@ public class BankFrm extends javax.swing.JFrame {
 		JButton_Deposit.addActionListener(lSymAction);
 		JButton_Withdraw.addActionListener(lSymAction);
 		JButton_Addinterest.addActionListener(lSymAction);
+
+	}
+
+	private void createDummyData() {
+		// TODO Auto-generated method stub
 
 	}
 

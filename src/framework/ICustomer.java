@@ -6,4 +6,6 @@ public interface ICustomer {
 	
 	public void removeAccount();
 	
+	public String getCustomerType();
+	
 }

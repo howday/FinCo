@@ -1,4 +1,5 @@
 package banking.gui.controllers;
+
 import framework.DomainEventManager;
 import framework.IAccount;
 
@@ -17,13 +18,15 @@ import banking.gui.view.JDialog_Deposit;
 import banking.gui.view.JDialog_Withdraw;
 
 public class BankFrmController {
+
+	Bank bank = new Bank();
+
 	public void JButtonPerAC_actionPerformed(java.awt.event.ActionEvent event) {
 		
 		JDialog_AddPAcc pac = new JDialog_AddPAcc();
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
-		
-		
+
 	}
 
 	public void JButtonCompAC_actionPerformed(java.awt.event.ActionEvent event) {
@@ -33,24 +36,25 @@ public class BankFrmController {
 	}
 
 	public void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
-		    JDialog_Deposit dep = new JDialog_Deposit();
-		    dep.setBounds(430, 15, 275, 140);
-		    dep.show();
-    		
-		
+		JDialog_Deposit dep = new JDialog_Deposit();
+		dep.setBounds(430, 15, 275, 140);
+		dep.show();
+
 	}
 
 	public void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event) {
 		JDialog_Withdraw wd = new JDialog_Withdraw();
-	    wd.setBounds(430, 15, 275, 140);
-	    wd.show();
+		wd.setBounds(430, 15, 275, 140);
+		wd.show();
 	}
 
 	public void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
-		List<IAccount> list= (new Bank()).getAccounts();
-		for(IAccount account: list)
-			DomainEventManager.raise(new InterestAddedEvent(account));
 		
+//		List<IAccount> list= (new Bank()).getAccounts();
+//		for(IAccount account: list)
+//			DomainEventManager.raise(new InterestAddedEvent(account));
+//		
+		bank.addInterestToAllAccounts();
 		
 	}
 
