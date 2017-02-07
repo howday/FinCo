@@ -2,8 +2,6 @@ package framework;
 
 import java.util.List;
 
-import edu.mum.finco.IEntry;
-
 public abstract class Account implements IAccount {
 
 	List<IEntry> entryList;
