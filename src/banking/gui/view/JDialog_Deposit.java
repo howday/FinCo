@@ -19,7 +19,7 @@ public class JDialog_Deposit extends javax.swing.JDialog
 		setTitle("Deposit");
 		setModal(true);
 		getContentPane().setLayout(null);
-		setSize(268,126);
+		setSize(268,150);
 		setVisible(false);
 		JLabel1.setText("Acc Nr");
 		getContentPane().add(JLabel1);
@@ -69,8 +69,12 @@ public class JDialog_Deposit extends javax.swing.JDialog
 		public void actionPerformed(java.awt.event.ActionEvent event)
 		{
 			depositAmount=JTextField_Deposit.getText();
+			if(depositAmount.equals(""))
+			{
+				JOptionPane.showMessageDialog(getParent(), "Please enter a valid number!!");
+			}
 			Object object = event.getSource();
-			if (object == JButton_OK)
+			if (object == JButton_OK && (!(depositAmount.equals(""))))
 				(new DepositeController(jdpg, parentframe)).JButtonOK_actionPerformed(event);
 			else if (object == JButton_Cancel)
 				(new DepositeController(jdpg, parentframe)).JButtonCalcel_actionPerformed(event);

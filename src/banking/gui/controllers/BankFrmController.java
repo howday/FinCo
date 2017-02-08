@@ -30,20 +30,20 @@ public class BankFrmController {
 	public void JButtonPerAC_actionPerformed(java.awt.event.ActionEvent event) {
 
 		JDialog_AddPAcc pac = new JDialog_AddPAcc();
-		pac.setBounds(450, 20, 300, 330);
+		pac.setBounds(450, 20, 300, 400);
 		pac.show();
 
 	}
 
 	public void JButtonCompAC_actionPerformed(java.awt.event.ActionEvent event) {
 		JDialog_AddCompAcc pac = new JDialog_AddCompAcc();
-		pac.setBounds(450, 20, 300, 330);
+		pac.setBounds(450, 20, 300, 400);
 		pac.show();
 	}
 
 	public void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
 		JDialog_Deposit dep = new JDialog_Deposit(bnkframe);
-		dep.setBounds(430, 15, 275, 140);
+		dep.setBounds(430, 15, 275, 160);
 		dep.show();
 		
 		
@@ -52,7 +52,7 @@ public class BankFrmController {
 
 	public void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event) {
 		JDialog_Withdraw wd = new JDialog_Withdraw(bnkframe);
-		wd.setBounds(430, 15, 275, 140);
+		wd.setBounds(430, 15, 275, 160);
 		wd.show();
 	}
 

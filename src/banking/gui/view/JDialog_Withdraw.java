@@ -26,7 +26,7 @@ public class JDialog_Withdraw extends javax.swing.JDialog
 		setTitle("Withdraw");
 		setModal(true);
 		getContentPane().setLayout(null);
-		setSize(277,134);
+		setSize(277,150);
 		setVisible(false);
 		JLabel1.setText("Acc Nr");
 		getContentPane().add(JLabel1);
@@ -76,8 +76,12 @@ public class JDialog_Withdraw extends javax.swing.JDialog
 		public void actionPerformed(java.awt.event.ActionEvent event)
 		{
 			withdrawalAmount=JTextField_AMT.getText();
+			if(withdrawalAmount.equals(""))
+			{
+				JOptionPane.showMessageDialog(getParent(), "Please enter a valid number!!");
+			}
 			Object object = event.getSource();
-			if (object == JButton_OK)
+			if (object == JButton_OK && !withdrawalAmount.equals(""))
 				(new WithdrawController(parentframe,jdpg)).JButtonOK_actionPerformed(event);
 			else if (object == JButton_Calcel)
 				(new WithdrawController(parentframe,jdpg)).JButtonCalcel_actionPerformed(event);

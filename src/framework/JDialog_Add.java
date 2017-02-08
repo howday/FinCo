@@ -55,14 +55,6 @@ public class JDialog_Add extends javax.swing.JDialog
 		getContentPane().add(JLabel5);
 		JLabel5.setForeground(java.awt.Color.black);
 		JLabel5.setBounds(12,180,48,24);
-//		JLabel6.setText("Birthdate");
-//		getContentPane().add(JLabel6);
-//		JLabel6.setForeground(java.awt.Color.black);
-//		JLabel6.setBounds(12,204,96,24);
-//		JLabel7.setText("Email");
-//		getContentPane().add(JLabel7);
-//		JLabel7.setForeground(java.awt.Color.black);
-//		JLabel7.setBounds(12,228,48,24);
 		getContentPane().add(JTextField_NAME);
 		JTextField_NAME.setBounds(84,84,156,20);
 		getContentPane().add(JTextField_CT);
@@ -73,10 +65,6 @@ public class JDialog_Add extends javax.swing.JDialog
 		JTextField_STR.setBounds(84,108,156,20);
 		getContentPane().add(JTextField_ZIP);
 		JTextField_ZIP.setBounds(84,180,156,20);
-//		getContentPane().add(JTextField_BD);
-//		JTextField_BD.setBounds(84,204,156,20);
-//		getContentPane().add(JTextField_EM);
-//		JTextField_EM.setBounds(84,228,156,20);
 		JButton_OK.setText("OK");
 		JButton_OK.setActionCommand("OK");
 		getContentPane().add(JButton_OK);
@@ -174,18 +162,9 @@ public class JDialog_Add extends javax.swing.JDialog
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
        DefaultAccount.create(JTextField_ACNR.getText(),JTextField_NAME.getText(), JTextField_STR.getText(), JTextField_CT.getText(),JTextField_ST.getText());
-//		DefaultAccount acc= new DefaultAccount();
-//       Customer cs= new Person();
-//       cs.setName(JTextField_NAME.getText());
-//       cs.setStreet(JTextField_STR.getText());
-//       cs.setCity(JTextField_CT.getText());
-//       cs.setState(JTextField_CT.getText());
-//       acc.setCustomer(cs);
-//       DStructure ds= DStructure.getInstance();
-//       ds.addAccount(acc);
-//       acc.accountNumber=JTextField_ACNR.getText();
-	   JOptionPane.showMessageDialog(null, "Default account created");
        dispose();
+       JOptionPane.showMessageDialog(null, "Default account created");
+       
 	}
 
 	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event)

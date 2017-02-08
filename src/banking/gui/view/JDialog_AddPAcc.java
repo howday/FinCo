@@ -25,7 +25,7 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 		setTitle("Add personal account");
 		setModal(true);
 		getContentPane().setLayout(null);
-		setSize(283, 303);
+//		setSize(283, 500);
 		setVisible(false);
 		JRadioButton_Chk.setText("Checkings");
 		JRadioButton_Chk.setActionCommand("Checkings");
