@@ -8,7 +8,7 @@ import banking.Saving;
 import banking.events.AccountCreatedEvent;
 import banking.events.MoneyDepositedInPersonalAccountEvent;
 
-public abstract class Account implements IAccount {
+public abstract class Account implements IAccount ,Cloneable{
 
 	List<IEntry> entryList = new ArrayList<>();
 	double rate;
@@ -106,5 +106,9 @@ public abstract class Account implements IAccount {
 	public void addEntry(IEntry entry) {
 		entryList.add(entry);
 	}
+	
+	public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
 }

@@ -28,7 +28,12 @@ public class DepositeController {
 				.filter(acc -> acc.getAccountNumber().equals(accountNumber)).findFirst();
 
 		if (account.isPresent()) {
-			bank.deposit(amount, account.get());
+			try {
+				bank.deposit(amount, (Account) account.get().clone());
+			} catch (CloneNotSupportedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		jdlg.setVisible(false);

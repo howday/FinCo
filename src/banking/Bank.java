@@ -36,17 +36,16 @@ public class Bank {
 	}
 
 	public void deposit(double amount, Account account) {
-		System.out.println("Current Balance: "+account.getCurrentBalance());
+		System.out.println("Current Balance: " + account.getCurrentBalance());
 		IEntry entry = new Entry(amount, account.getCustomer().getName());
 		account.addEntry(entry);
 		account.deposit(amount);
 
-		
 		Optional<Account> aa = DStructure.getInstance().getList().stream()
-				.filter(acc -> acc.getAccountNumber().equals("123")).findFirst();
+				.filter(acc -> acc.getAccountNumber().equals(account.getAccountNumber())).findFirst();
 
 		if (aa.isPresent()) {
-		System.out.println("After Balance: "+aa.get().getCurrentBalance());
+			System.out.println("After Balance: " + aa.get().getCurrentBalance());
 		}
 
 	}
