@@ -46,7 +46,7 @@ public class AddCompController {
 	}
 
 	public void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event) {
-
+		companyFrame.setVisible(false);
 	}
 
 }

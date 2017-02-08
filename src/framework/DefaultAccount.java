@@ -1,5 +1,9 @@
 package framework;
 
+import banking.Checking;
+import banking.Saving;
+import banking.events.AccountCreatedEvent;
+
 public class DefaultAccount extends Account {
 
 	public void deposit(double amount) {
@@ -24,7 +28,7 @@ public class DefaultAccount extends Account {
 	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
-		return "D";
+		return "Default";
 	}
 
 	@Override
@@ -33,4 +37,18 @@ public class DefaultAccount extends Account {
 		
 	}
 
+	public static void create(String accountnr, String clientName, String street, String city, String state) {
+		DefaultCustomer person = new DefaultCustomer();
+		person.setName(clientName);
+		person.setStreet(street);
+		person.setCity(city);
+		person.setState(state);
+
+		Account account = new DefaultAccount();
+		account.setCustomer(person);
+		account.setAccountNumber(accountnr);
+		DomainEventManager.raise(new DefaultAccountCreatedEvent(account));
+	}
+
+	
 }
