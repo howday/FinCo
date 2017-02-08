@@ -83,8 +83,10 @@ public abstract class Account implements IAccount, Cloneable {
 		System.out.println("withdrawn!!");
 	}
 
-	public static void create(String accountnr, String clientName, String street, String city, String zip, String state,
-			String accountType, String email, String birthDate) {
+	public static void createPersonAccount(String accountnr, String clientName, String street, String city, String zip,
+			String state, String accountType, String email, String birthDate) {
+
+		System.out.println("Account type in Personal : "+accountType);
 		Person person = new Person();
 		person.setName(clientName);
 		person.setStreet(street);
@@ -96,6 +98,25 @@ public abstract class Account implements IAccount, Cloneable {
 
 		Account account = "Checking".equals(accountType) ? new Checking() : new Saving();
 		account.setCustomer(person);
+		account.setAccountNumber(accountnr);
+		DomainEventManager.raise(new AccountCreatedEvent(account));
+	}
+
+	public static void createCompanyAccount(String accountnr, String clientName, String street, String city, String zip,
+			String state, String accountType, String email, int noOfEmployess) {
+
+		System.out.println("Account type in Comapany : "+accountType);
+		Company company = new Company();
+		company.setName(clientName);
+		company.setStreet(street);
+		company.setCity(city);
+		company.setState(state);
+		company.setZip(zip);
+		company.setEmail(email);
+		company.setNumberOfEmployees(noOfEmployess);
+
+		Account account = "Checking".equals(accountType) ? new Checking() : new Saving();
+		account.setCustomer(company);
 		account.setAccountNumber(accountnr);
 		DomainEventManager.raise(new AccountCreatedEvent(account));
 	}

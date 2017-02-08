@@ -9,9 +9,9 @@ import javax.swing.*;
 import banking.gui.controllers.*;
 
 public class JDialog_AddPAcc extends javax.swing.JDialog {
+	public final String customerType = "person";
 	private JDialog_AddPAcc parentframe;
 	public String accountnr, clientName, street, city, zip, state, accountType, email, birthdate;
-	
 
 	public JDialog_AddPAcc() {
 		super();
@@ -31,15 +31,17 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 		JRadioButton_Chk.setActionCommand("Checkings");
 		getContentPane().add(JRadioButton_Chk);
 		JRadioButton_Chk.setBounds(36, 0, 84, 24);
+
 		JRadioButton_Sav.setText("Savings");
 		JRadioButton_Sav.setActionCommand("Savings");
 		getContentPane().add(JRadioButton_Sav);
+		JRadioButton_Sav.setBounds(36, 24, 84, 24);
 
 		JRadioButton_Chk.setSelected(true);
-//		
+		accountType = "Checking";
+
 		getContentPane().add(buttonGroup);
-		
-		JRadioButton_Sav.setBounds(36, 24, 84, 24);
+
 		JLabel1.setText("Name");
 		getContentPane().add(JLabel1);
 		JLabel1.setForeground(java.awt.Color.black);
@@ -130,7 +132,7 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 	javax.swing.JTextField JTextField_ACNR = new javax.swing.JTextField();
 	javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
 	javax.swing.JRadioButton buttonGroup = new javax.swing.JRadioButton();
-	
+
 	// }}
 
 	class SymMouse extends java.awt.event.MouseAdapter {
@@ -151,8 +153,8 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 			parentframe.city = JTextField_CT.getText();
 			parentframe.zip = JTextField_ZIP.getText();
 			parentframe.state = JTextField_ST.getText();
-			parentframe.email=JTextField_EM.getText();
-			parentframe.birthdate=JTextField_BD.getText();
+			parentframe.email = JTextField_EM.getText();
+			parentframe.birthdate = JTextField_BD.getText();
 			Object object = event.getSource();
 			if (object == JButton_OK)
 				(new AddPAccController(parentframe)).JButtonOK_actionPerformed(event);

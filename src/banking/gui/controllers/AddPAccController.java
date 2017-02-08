@@ -24,7 +24,17 @@ public class AddPAccController {
 	
 	public void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-      Account.create(jdpc.accountnr,jdpc.clientName, jdpc.street,jdpc.city,jdpc.zip, jdpc.state,jdpc.accountType, jdpc.email, jdpc.birthdate);
+	  System.out.println("Customer type: "+jdpc.customerType);
+      Account.createPersonAccount(jdpc.accountnr,
+    		  jdpc.clientName,
+    		  jdpc.street,
+    		  jdpc.city,
+    		  jdpc.zip,
+    		  jdpc.state,
+    		  jdpc.accountType,
+    		  jdpc.email,
+    		  jdpc.birthdate
+    		  );
       jdpc.setVisible(false);
 	}
 
