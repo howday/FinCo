@@ -24,6 +24,7 @@ public class MoneyDepositedInPersonalAccountHandler implements IEventHandler {
 				if (Math.abs(diffAmount) > 500) {
 					System.out.println("Deposit of sum greater than $500 is performed!!");
 					System.out.println("Sending email to : " + myevt.account.getCustomer().getName());
+					
 				}
 			}
 		}

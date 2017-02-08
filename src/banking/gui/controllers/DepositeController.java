@@ -2,6 +2,8 @@ package banking.gui.controllers;
 
 import java.util.Optional;
 
+import javax.swing.JOptionPane;
+
 import banking.Bank;
 import banking.gui.view.BankFrm;
 import banking.gui.view.JDialog_Deposit;
@@ -35,7 +37,9 @@ public class DepositeController {
 				e.printStackTrace();
 			}
 		}
-
+		if(amount>500 && account.get().getCustomer().getCustomerType().equals("P"))
+			JOptionPane.showMessageDialog(null, "Email sent to"+ account.get().getCustomer().getName());
+		
 		depositDialog.setVisible(false);
 	}
 
