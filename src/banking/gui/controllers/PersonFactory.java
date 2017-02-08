@@ -10,8 +10,6 @@ public class PersonFactory {
 
 	public static IAccount create(String accountnr, String clientName, String street, String city, String zip,
 			String state, String accountType, String email, String birthDate) {
-		System.out.println(clientName);
-
 		Person person = new Person();
 		person.setName(clientName);
 		person.setStreet(street);

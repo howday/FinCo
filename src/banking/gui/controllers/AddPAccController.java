@@ -24,7 +24,6 @@ public class AddPAccController {
 	
 	public void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-		
       IAccount acc= PersonFactory.create(jdpc.accountnr,jdpc.clientName, jdpc.street,jdpc.city,jdpc.zip, jdpc.state,jdpc.accountType, jdpc.email, jdpc.birthdate);
       DomainEventManager.raise(new AccountCreatedEvent(acc));
       jdpc.setVisible(false);

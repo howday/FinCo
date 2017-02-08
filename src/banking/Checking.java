@@ -10,9 +10,9 @@ public class Checking extends Account {
 
 	@Override
 	public void addInterest() {
-		super.setCurrentBalance(getCurrentBalance() * RATE);
-		// TODO: raise interest added to account event
-		DomainEventManager.raise(new InterestAddedEvent(this));
+		super.setCurrentBalance(getCurrentBalance() + getCurrentBalance()* RATE);
+		System.out.println(this.getAccountNumber());
+//		DomainEventManager.raise(new InterestAddedEvent(this));
 	}
 
 	@Override

@@ -10,8 +10,8 @@ public class Saving extends Account {
 
 	@Override
 	public void addInterest() {
-		super.setCurrentBalance(getCurrentBalance() * RATE);
-		DomainEventManager.raise(new InterestAddedEvent(this));
+		super.setCurrentBalance(getCurrentBalance() + getCurrentBalance()* RATE);
+//		DomainEventManager.raise(new InterestAddedEvent(this));
 	}
 
 	@Override

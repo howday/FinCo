@@ -128,15 +128,6 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 
 	class SymMouse extends java.awt.event.MouseAdapter {
 		public void mouseClicked(java.awt.event.MouseEvent event) {
-			parentframe.accountnr = JTextField_ACNR.getText();
-			parentframe.clientName = JTextField_NAME.getText();
-			parentframe.street = JTextField_STR.getText();
-			parentframe.city = JTextField_CT.getText();
-			parentframe.zip = JTextField_ZIP.getText();
-			parentframe.state = JTextField_ST.getText();
-			parentframe.email=JTextField_EM.getText();
-			parentframe.birthdate=JTextField_EM.getText();
-			
 			Object object = event.getSource();
 			if (object == JRadioButton_Chk)
 				(new AddPAccController(parentframe)).JRadioButtonChk_mouseClicked(event);
@@ -147,7 +138,14 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 
 	class SymAction implements java.awt.event.ActionListener {
 		public void actionPerformed(java.awt.event.ActionEvent event) {
-
+			parentframe.accountnr = JTextField_ACNR.getText();
+			parentframe.clientName = JTextField_NAME.getText();
+			parentframe.street = JTextField_STR.getText();
+			parentframe.city = JTextField_CT.getText();
+			parentframe.zip = JTextField_ZIP.getText();
+			parentframe.state = JTextField_ST.getText();
+			parentframe.email=JTextField_EM.getText();
+			parentframe.birthdate=JTextField_BD.getText();
 			Object object = event.getSource();
 			if (object == JButton_OK)
 				(new AddPAccController(parentframe)).JButtonOK_actionPerformed(event);

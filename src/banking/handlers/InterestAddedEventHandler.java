@@ -11,8 +11,6 @@ public class InterestAddedEventHandler implements IEventHandler {
 	@Override
 	public void handle(IDomainEvent evt) {
 		InterestAddedEvent myevt = (InterestAddedEvent) evt;
-
-		System.out.println("Do anything yo want with me ");
 		for (IAccount account : DStructure.getInstance().getList()) {
 
 			if (account.getAccountNumber().equals(myevt.account.getAccountNumber())) {
@@ -20,7 +18,6 @@ public class InterestAddedEventHandler implements IEventHandler {
 			}
 
 		}
-
 	}
 
 }

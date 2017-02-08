@@ -208,13 +208,6 @@ public class BankFrm extends javax.swing.JFrame {
 		}
 		List<IAccount> list = dis.getList();
 		for (IAccount account : list) {
-			
-			// model.addColumn("AccountNr");
-			// model.addColumn("Name");
-			// model.addColumn("City");
-			// model.addColumn("P/C");
-			// model.addColumn("Ch/S");
-			// model.addColumn("Amount");
 			rowdata[0] = account.getAccountNumber();
 			rowdata[1] = account.getCustomer().getName();
 			rowdata[2] = account.getCustomer().getCity();

@@ -16,13 +16,14 @@ import banking.gui.view.JDialog_AddCompAcc;
 import banking.gui.view.JDialog_AddPAcc;
 import banking.gui.view.JDialog_Deposit;
 import banking.gui.view.JDialog_Withdraw;
+import datastructure.DStructure;
 
 public class BankFrmController {
 
-	Bank bank = new Bank();
+	Bank bank;
 
 	public void JButtonPerAC_actionPerformed(java.awt.event.ActionEvent event) {
-		
+
 		JDialog_AddPAcc pac = new JDialog_AddPAcc();
 		pac.setBounds(450, 20, 300, 330);
 		pac.show();
@@ -49,20 +50,17 @@ public class BankFrmController {
 	}
 
 	public void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
-		
-//		List<IAccount> list= (new Bank()).getAccounts();
-//		for(IAccount account: list)
-//			DomainEventManager.raise(new InterestAddedEvent(account));
-//		
-		bank.addInterestToAllAccounts();
-		
+		bank = new Bank();
+		for (IAccount acc : bank.getAccounts()) {
+			acc.addInterest();
+			DomainEventManager.raise(new InterestAddedEvent(acc));
+		}
+
 	}
 
 	public void JButtonExit_actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
 		System.exit(0);
 	}
-	
-
 
 }
