@@ -34,6 +34,11 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 		JRadioButton_Sav.setText("Savings");
 		JRadioButton_Sav.setActionCommand("Savings");
 		getContentPane().add(JRadioButton_Sav);
+
+		JRadioButton_Chk.setSelected(true);
+//		
+		getContentPane().add(buttonGroup);
+		
 		JRadioButton_Sav.setBounds(36, 24, 84, 24);
 		JLabel1.setText("Name");
 		getContentPane().add(JLabel1);
@@ -124,6 +129,8 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 	javax.swing.JButton JButton_Cancel = new javax.swing.JButton();
 	javax.swing.JTextField JTextField_ACNR = new javax.swing.JTextField();
 	javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
+	javax.swing.JRadioButton buttonGroup = new javax.swing.JRadioButton();
+	
 	// }}
 
 	class SymMouse extends java.awt.event.MouseAdapter {

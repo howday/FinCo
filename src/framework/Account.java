@@ -94,7 +94,7 @@ public abstract class Account implements IAccount, Cloneable {
 		person.setEmail(email);
 		person.setBirthDate(birthDate);
 
-		Account account = accountType.equals("Checking") ? new Checking() : new Saving();
+		Account account = "Checking".equals(accountType) ? new Checking() : new Saving();
 		account.setCustomer(person);
 		account.setAccountNumber(accountnr);
 		DomainEventManager.raise(new AccountCreatedEvent(account));

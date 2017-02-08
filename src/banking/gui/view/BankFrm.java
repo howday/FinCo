@@ -10,6 +10,7 @@ import datastructure.DStructure;
 import framework.IAccount;
 import java.awt.BorderLayout;
 
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
@@ -204,10 +205,20 @@ public class BankFrm extends javax.swing.JFrame {
 				(new BankFrmController(myframe)).JButtonPerAC_actionPerformed(event);
 			else if (object == JButton_CompAC)
 				(new BankFrmController(myframe)).JButtonCompAC_actionPerformed(event);
-			else if (object == JButton_Deposit && selection >= 0)
-				(new BankFrmController(myframe)).JButtonDeposit_actionPerformed(event);
-			else if (object == JButton_Withdraw && selection >= 0)
-				(new BankFrmController(myframe)).JButtonWithdraw_actionPerformed(event);
+			else if (object == JButton_Deposit) {
+				if (selection >= 0) {
+					(new BankFrmController(myframe)).JButtonDeposit_actionPerformed(event);
+				} else {
+					JOptionPane.showMessageDialog(getParent(), "Please select an account!!");
+				}
+			} else if (object == JButton_Withdraw) {
+				if (selection >= 0) {
+					(new BankFrmController(myframe)).JButtonWithdraw_actionPerformed(event);
+				} else {
+					JOptionPane.showMessageDialog(getParent(), "Please select an account!!");
+				}
+			}
+
 			else if (object == JButton_Addinterest)
 				(new BankFrmController(myframe)).JButtonAddinterest_actionPerformed(event);
 
