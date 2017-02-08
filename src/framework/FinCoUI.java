@@ -36,7 +36,7 @@ public class FinCoUI extends javax.swing.JFrame
 		setTitle("Bank Application.");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0,0));
-		setSize(575,310);
+		setSize(575,400);
 		setVisible(false);
 		JPanel1.setLayout(null);
 		getContentPane().add(BorderLayout.CENTER, JPanel1);
@@ -190,7 +190,7 @@ public class FinCoUI extends javax.swing.JFrame
 		*/
 		
 		JDialog_Add pac = new JDialog_Add(myframe);
-		pac.setBounds(450, 20, 300, 330);
+		pac.setBounds(450, 20, 300, 400);
 		pac.show();
 		DStructure dis = DStructure.getInstance();
 		for (int i = model.getRowCount() - 1; i >= 0; i--) {
@@ -223,10 +223,10 @@ public class FinCoUI extends javax.swing.JFrame
 		 show it 
 		*/
 		
-		JDialog_AddCompAcc pac = new JDialog_AddCompAcc(myframe);
-		pac.setBounds(450, 20, 300, 330);
-		pac.show();
-		
+//		JDialog_Add pac = new JDialog_AddCompAcc(myframe);
+//		pac.setBounds(450, 20, 300, 330);
+//		pac.show();
+//		
 		
 	}
 

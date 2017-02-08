@@ -27,13 +27,6 @@ public class JDialog_Add extends javax.swing.JDialog
 		getContentPane().setLayout(null);
 		setSize(283,303);
 		setVisible(false);
-//		JRadioButton_Chk.setText("Checkings");
-//		JRadioButton_Chk.setActionCommand("Checkings");
-//		getContentPane().add(JRadioButton_Chk);
-//		JRadioButton_Chk.setBounds(36,0,84,24);
-//		JRadioButton_Sav.setText("Savings");
-//		JRadioButton_Sav.setActionCommand("Savings");
-//		getContentPane().add(JRadioButton_Sav);
 		JRadioButton_Sav.setBounds(36,24,84,24);
 		JLabel1.setText("Name");
 		getContentPane().add(JLabel1);
