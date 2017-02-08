@@ -11,8 +11,7 @@ public class Checking extends Account {
 	@Override
 	public void addInterest() {
 		super.setCurrentBalance(getCurrentBalance() + getCurrentBalance()* RATE);
-		System.out.println(this.getAccountNumber());
-//		DomainEventManager.raise(new InterestAddedEvent(this));
+		DomainEventManager.raise(new InterestAddedEvent(this));
 	}
 
 	@Override

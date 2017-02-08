@@ -37,7 +37,7 @@ public class BankFrm extends javax.swing.JFrame {
 	private JScrollPane JScrollPane1;
 	BankFrm myframe;
 	private Object rowdata[];
-
+	public String acountnumber;
 	public BankFrm() {
 		myframe = this;
 		/**
@@ -182,19 +182,25 @@ public class BankFrm extends javax.swing.JFrame {
 
 	class SymAction implements java.awt.event.ActionListener {
 		public void actionPerformed(java.awt.event.ActionEvent event) {
+			int selection = JTable1.getSelectionModel().getMinSelectionIndex();
+			if (selection >=0){
+	            String accnr = (String)model.getValueAt(selection, 0);
+	            myframe.acountnumber=accnr;
+	            System.out.println(myframe.acountnumber);
+			}
 			Object object = event.getSource();
 			if (object == JButton_Exit)
-				(new BankFrmController()).JButtonExit_actionPerformed(event);
+				(new BankFrmController(myframe)).JButtonExit_actionPerformed(event);
 			else if (object == JButton_PerAC)
-				(new BankFrmController()).JButtonPerAC_actionPerformed(event);
+				(new BankFrmController(myframe)).JButtonPerAC_actionPerformed(event);
 			else if (object == JButton_CompAC)
-				(new BankFrmController()).JButtonCompAC_actionPerformed(event);
-			else if (object == JButton_Deposit)
-				(new BankFrmController()).JButtonDeposit_actionPerformed(event);
+				(new BankFrmController(myframe)).JButtonCompAC_actionPerformed(event);
+			else if (object == JButton_Deposit && selection>=0)
+				(new BankFrmController(myframe)).JButtonDeposit_actionPerformed(event);
 			else if (object == JButton_Withdraw)
-				(new BankFrmController()).JButtonWithdraw_actionPerformed(event);
+				(new BankFrmController(myframe)).JButtonWithdraw_actionPerformed(event);
 			else if (object == JButton_Addinterest)
-				(new BankFrmController()).JButtonAddinterest_actionPerformed(event);
+				(new BankFrmController(myframe)).JButtonAddinterest_actionPerformed(event);
 
 			updateView();
 

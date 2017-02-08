@@ -21,6 +21,11 @@ import datastructure.DStructure;
 public class BankFrmController {
 
 	Bank bank;
+	BankFrm bnkframe;
+	public BankFrmController(BankFrm frm)
+	{
+		bnkframe=frm;
+	}
 
 	public void JButtonPerAC_actionPerformed(java.awt.event.ActionEvent event) {
 
@@ -37,9 +42,11 @@ public class BankFrmController {
 	}
 
 	public void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
-		JDialog_Deposit dep = new JDialog_Deposit();
+		JDialog_Deposit dep = new JDialog_Deposit(bnkframe);
 		dep.setBounds(430, 15, 275, 140);
 		dep.show();
+		
+		
 
 	}
 
@@ -51,10 +58,7 @@ public class BankFrmController {
 
 	public void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
 		bank = new Bank();
-		for (IAccount acc : bank.getAccounts()) {
-			acc.addInterest();
-			DomainEventManager.raise(new InterestAddedEvent(acc));
-		}
+		bank.addInterestToAllAccounts();
 
 	}
 

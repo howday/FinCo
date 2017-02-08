@@ -104,8 +104,8 @@ public class JDialog_AddPAcc extends javax.swing.JDialog {
 	}
 
 	// {{DECLARE_CONTROLS
-	javax.swing.JRadioButton JRadioButton_Chk = new javax.swing.JRadioButton();
-	javax.swing.JRadioButton JRadioButton_Sav = new javax.swing.JRadioButton();
+	public javax.swing.JRadioButton JRadioButton_Chk = new javax.swing.JRadioButton();
+	public javax.swing.JRadioButton JRadioButton_Sav = new javax.swing.JRadioButton();
 	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
 	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
 	javax.swing.JLabel JLabel3 = new javax.swing.JLabel();

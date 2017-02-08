@@ -3,6 +3,7 @@ package banking.gui.controllers;
 import banking.events.AccountCreatedEvent;
 import banking.events.InterestAddedEvent;
 import banking.gui.view.JDialog_AddPAcc;
+import framework.Account;
 import framework.DomainEventManager;
 import framework.IAccount;
 import jdk.nashorn.internal.runtime.regexp.JoniRegExp.Factory;
@@ -14,18 +15,21 @@ public class AddPAccController {
 	}
 	public void JRadioButtonChk_mouseClicked(java.awt.event.MouseEvent event)
 	{
+		jdpc.JRadioButton_Chk.setSelected(true);
+		jdpc.JRadioButton_Sav.setSelected(false);
 		jdpc.accountType="Checking";
 	}
 
 	public void JRadioButtonSav_mouseClicked(java.awt.event.MouseEvent event)
 	{
+		jdpc.JRadioButton_Chk.setSelected(false);
+		jdpc.JRadioButton_Sav.setSelected(true);
 		jdpc.accountType="Saving";
 	}
 	
 	public void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
-      IAccount acc= PersonFactory.create(jdpc.accountnr,jdpc.clientName, jdpc.street,jdpc.city,jdpc.zip, jdpc.state,jdpc.accountType, jdpc.email, jdpc.birthdate);
-      DomainEventManager.raise(new AccountCreatedEvent(acc));
+      Account.create(jdpc.accountnr,jdpc.clientName, jdpc.street,jdpc.city,jdpc.zip, jdpc.state,jdpc.accountType, jdpc.email, jdpc.birthdate);
       jdpc.setVisible(false);
 	}
 

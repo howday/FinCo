@@ -15,8 +15,6 @@ public class AccountCreatedEventHandler implements IEventHandler {
 		
 		dis.addAccount(myevt.account);
 		
-		System.out.println(dis.getList().get(0).getAccountNumber());
-		
 
 	}
 }
