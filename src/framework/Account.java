@@ -1,14 +1,16 @@
 package framework;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import banking.Checking;
 import banking.Saving;
 import banking.events.AccountCreatedEvent;
+import banking.events.MoneyDepositedInPersonalAccountEvent;
 
 public abstract class Account implements IAccount {
 
-	List<IEntry> entryList;
+	List<IEntry> entryList = new ArrayList<>();
 	double rate;
 	double currentBalance = 1.0d;
 	String accountNumber;
@@ -58,7 +60,9 @@ public abstract class Account implements IAccount {
 		if ("P".equals(customer.getCustomerType()) && amount > 500) {
 			// TODO: raise AmountExceedRequested event
 		}
+		currentBalance += amount;
 
+		DomainEventManager.raise(new MoneyDepositedInPersonalAccountEvent(this));
 		// TODO: raise amount deposit event
 		System.out.println("deposited!!");
 	}
@@ -77,8 +81,8 @@ public abstract class Account implements IAccount {
 		System.out.println("withdrawn!!");
 	}
 
-	public static void create(String accountnr, String clientName, String street, String city, String zip,
-			String state, String accountType, String email, String birthDate) {
+	public static void create(String accountnr, String clientName, String street, String city, String zip, String state,
+			String accountType, String email, String birthDate) {
 		Person person = new Person();
 		person.setName(clientName);
 		person.setStreet(street);
@@ -97,6 +101,10 @@ public abstract class Account implements IAccount {
 	public double getBalance() {
 		System.out.println("get balance called!!");
 		return 0.0d;
+	}
+
+	public void addEntry(IEntry entry) {
+		entryList.add(entry);
 	}
 
 }

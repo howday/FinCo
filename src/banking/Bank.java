@@ -1,24 +1,25 @@
 package banking;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import datastructure.DStructure;
 import framework.Account;
 import framework.Customer;
-import framework.DefaultAccount;
+import framework.Entry;
 import framework.IAccount;
+import framework.IEntry;
 
 public class Bank {
 
-	List<IAccount> accounts;
+	List<Account> accounts;
 
 	public Bank() {
 		DStructure dis = DStructure.getInstance();
 		this.accounts = dis.getList();
 	}
 
-	public void addAccount(IAccount account) {
+	public void addAccount(Account account) {
 		accounts.add(account);
 	}
 
@@ -26,11 +27,27 @@ public class Bank {
 		accounts.forEach(a -> a.addInterest());
 	}
 
-	public List<IAccount> getAccounts() {
+	public List<Account> getAccounts() {
 		return accounts;
 	}
 
 	public void createAccount(Customer customer, Account account) {
+
+	}
+
+	public void deposit(double amount, Account account) {
+		System.out.println("Current Balance: "+account.getCurrentBalance());
+		IEntry entry = new Entry(amount, account.getCustomer().getName());
+		account.addEntry(entry);
+		account.deposit(amount);
+
+		
+		Optional<Account> aa = DStructure.getInstance().getList().stream()
+				.filter(acc -> acc.getAccountNumber().equals("123")).findFirst();
+
+		if (aa.isPresent()) {
+		System.out.println("After Balance: "+aa.get().getCurrentBalance());
+		}
 
 	}
 

@@ -1,12 +1,7 @@
 package banking.gui.controllers;
 
-import banking.events.AccountCreatedEvent;
-import banking.events.InterestAddedEvent;
 import banking.gui.view.JDialog_AddPAcc;
 import framework.Account;
-import framework.DomainEventManager;
-import framework.IAccount;
-import jdk.nashorn.internal.runtime.regexp.JoniRegExp.Factory;
 
 public class AddPAccController {
 	JDialog_AddPAcc jdpc;

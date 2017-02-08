@@ -3,15 +3,16 @@ package banking.events;
 import framework.Account;
 import framework.IDomainEvent;
 
-public class AccountCreatedEvent implements IDomainEvent {
+public class MoneyDepositedInPersonalAccountEvent implements IDomainEvent {
+
 	public Account account;
 
-	public AccountCreatedEvent(Account acc) {
+	public MoneyDepositedInPersonalAccountEvent(Account acc) {
 		account = acc;
 	}
 
-	public AccountCreatedEvent() {
-
+	public MoneyDepositedInPersonalAccountEvent() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

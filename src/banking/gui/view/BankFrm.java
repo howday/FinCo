@@ -17,9 +17,11 @@ import javax.swing.table.DefaultTableModel;
 
 import banking.events.AccountCreatedEvent;
 import banking.events.InterestAddedEvent;
+import banking.events.MoneyDepositedInPersonalAccountEvent;
 import banking.gui.controllers.BankFrmController;
 import banking.handlers.AccountCreatedEventHandler;
 import banking.handlers.InterestAddedEventHandler;
+import banking.handlers.MoneyDepositedInPersonalAccountHandler;
 import framework.Account;
 import framework.DomainEventManager;
 
@@ -38,6 +40,7 @@ public class BankFrm extends javax.swing.JFrame {
 	BankFrm myframe;
 	private Object rowdata[];
 	public String acountnumber;
+
 	public BankFrm() {
 		myframe = this;
 		/**
@@ -45,7 +48,9 @@ public class BankFrm extends javax.swing.JFrame {
 		 */
 		DomainEventManager.addHandler(new InterestAddedEvent(), new InterestAddedEventHandler());
 		DomainEventManager.addHandler(new AccountCreatedEvent(), new AccountCreatedEventHandler());
-		createDummyData();
+		DomainEventManager.addHandler(new MoneyDepositedInPersonalAccountEvent(),
+				new MoneyDepositedInPersonalAccountHandler());
+
 		setTitle("Bank Application.");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -183,10 +188,10 @@ public class BankFrm extends javax.swing.JFrame {
 	class SymAction implements java.awt.event.ActionListener {
 		public void actionPerformed(java.awt.event.ActionEvent event) {
 			int selection = JTable1.getSelectionModel().getMinSelectionIndex();
-			if (selection >=0){
-	            String accnr = (String)model.getValueAt(selection, 0);
-	            myframe.acountnumber=accnr;
-	            System.out.println(myframe.acountnumber);
+			if (selection >= 0) {
+				String accnr = (String) model.getValueAt(selection, 0);
+				myframe.acountnumber = accnr;
+				System.out.println(myframe.acountnumber);
 			}
 			Object object = event.getSource();
 			if (object == JButton_Exit)
@@ -195,7 +200,7 @@ public class BankFrm extends javax.swing.JFrame {
 				(new BankFrmController(myframe)).JButtonPerAC_actionPerformed(event);
 			else if (object == JButton_CompAC)
 				(new BankFrmController(myframe)).JButtonCompAC_actionPerformed(event);
-			else if (object == JButton_Deposit && selection>=0)
+			else if (object == JButton_Deposit && selection >= 0)
 				(new BankFrmController(myframe)).JButtonDeposit_actionPerformed(event);
 			else if (object == JButton_Withdraw)
 				(new BankFrmController(myframe)).JButtonWithdraw_actionPerformed(event);
@@ -212,8 +217,8 @@ public class BankFrm extends javax.swing.JFrame {
 		for (int i = model.getRowCount() - 1; i >= 0; i--) {
 			model.removeRow(i);
 		}
-		List<IAccount> list = dis.getList();
-		for (IAccount account : list) {
+		List<Account> list = dis.getList();
+		for (Account account : list) {
 			rowdata[0] = account.getAccountNumber();
 			rowdata[1] = account.getCustomer().getName();
 			rowdata[2] = account.getCustomer().getCity();

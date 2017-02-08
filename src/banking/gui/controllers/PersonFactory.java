@@ -8,7 +8,7 @@ import framework.Person;
 
 public class PersonFactory {
 
-	public static IAccount create(String accountnr, String clientName, String street, String city, String zip,
+	public static Account create(String accountnr, String clientName, String street, String city, String zip,
 			String state, String accountType, String email, String birthDate) {
 		Person person = new Person();
 		person.setName(clientName);

@@ -3,10 +3,10 @@ package datastructure;
 import java.util.ArrayList;
 import java.util.List;
 
-import framework.IAccount;
+import framework.Account;
 
 public class DStructure {
-	List<IAccount> list = new ArrayList<IAccount>();
+	List<Account> list = new ArrayList<Account>();
 	private static DStructure myObj;
     private DStructure(){
          
@@ -18,11 +18,11 @@ public class DStructure {
         return myObj;
     }
     
-	public List<IAccount> getList() {
+	public List<Account> getList() {
 		return list;
 	}
 	
-	public void addAccount(IAccount acc){
+	public void addAccount(Account acc){
 		list.add(acc);
 	}
 
