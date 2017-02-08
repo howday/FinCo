@@ -7,8 +7,9 @@ import banking.Checking;
 import banking.Saving;
 import banking.events.AccountCreatedEvent;
 import banking.events.MoneyDepositedInPersonalAccountEvent;
+import banking.events.MoneyWithdrawInPersonalAccountEvent;
 
-public abstract class Account implements IAccount ,Cloneable{
+public abstract class Account implements IAccount, Cloneable {
 
 	List<IEntry> entryList = new ArrayList<>();
 	double rate;
@@ -76,8 +77,9 @@ public abstract class Account implements IAccount ,Cloneable{
 		if (amount > getCurrentBalance()) {
 			// TODO: raise InSufficientAmountRequested event
 		}
+
 		currentBalance -= amount;
-		// TODO: raise amount withdrawn event
+		DomainEventManager.raise(new MoneyWithdrawInPersonalAccountEvent(this));
 		System.out.println("withdrawn!!");
 	}
 
@@ -106,9 +108,9 @@ public abstract class Account implements IAccount ,Cloneable{
 	public void addEntry(IEntry entry) {
 		entryList.add(entry);
 	}
-	
+
 	public Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
+		return super.clone();
+	}
 
 }

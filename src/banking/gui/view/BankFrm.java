@@ -18,10 +18,12 @@ import javax.swing.table.DefaultTableModel;
 import banking.events.AccountCreatedEvent;
 import banking.events.InterestAddedEvent;
 import banking.events.MoneyDepositedInPersonalAccountEvent;
+import banking.events.MoneyWithdrawInPersonalAccountEvent;
 import banking.gui.controllers.BankFrmController;
 import banking.handlers.AccountCreatedEventHandler;
 import banking.handlers.InterestAddedEventHandler;
 import banking.handlers.MoneyDepositedInPersonalAccountHandler;
+import banking.handlers.MoneyWithdrawInPersonalAccontHandler;
 import framework.Account;
 import framework.DomainEventManager;
 
@@ -50,6 +52,8 @@ public class BankFrm extends javax.swing.JFrame {
 		DomainEventManager.addHandler(new AccountCreatedEvent(), new AccountCreatedEventHandler());
 		DomainEventManager.addHandler(new MoneyDepositedInPersonalAccountEvent(),
 				new MoneyDepositedInPersonalAccountHandler());
+		DomainEventManager.addHandler(new MoneyWithdrawInPersonalAccountEvent(),
+				new MoneyWithdrawInPersonalAccontHandler());
 
 		setTitle("Bank Application.");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
@@ -202,7 +206,7 @@ public class BankFrm extends javax.swing.JFrame {
 				(new BankFrmController(myframe)).JButtonCompAC_actionPerformed(event);
 			else if (object == JButton_Deposit && selection >= 0)
 				(new BankFrmController(myframe)).JButtonDeposit_actionPerformed(event);
-			else if (object == JButton_Withdraw)
+			else if (object == JButton_Withdraw && selection >= 0)
 				(new BankFrmController(myframe)).JButtonWithdraw_actionPerformed(event);
 			else if (object == JButton_Addinterest)
 				(new BankFrmController(myframe)).JButtonAddinterest_actionPerformed(event);

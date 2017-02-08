@@ -49,5 +49,21 @@ public class Bank {
 		}
 
 	}
+	
+	public void withdraw(double amount, Account account) {
+		System.out.println("Current Balance: "+account.getCurrentBalance());
+		IEntry entry = new Entry(amount, account.getCustomer().getName());
+		account.addEntry(entry);
+		account.withdraw(amount);
+
+		
+		Optional<Account> aa = DStructure.getInstance().getList().stream()
+				.filter(acc -> acc.getAccountNumber().equals(account.getAccountNumber())).findFirst();
+
+		if (aa.isPresent()) {
+		System.out.println("After Balance: "+aa.get().getCurrentBalance());
+		}
+
+	}
 
 }

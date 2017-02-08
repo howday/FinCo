@@ -51,7 +51,7 @@ public class BankFrmController {
 	}
 
 	public void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event) {
-		JDialog_Withdraw wd = new JDialog_Withdraw();
+		JDialog_Withdraw wd = new JDialog_Withdraw(bnkframe);
 		wd.setBounds(430, 15, 275, 140);
 		wd.show();
 	}
