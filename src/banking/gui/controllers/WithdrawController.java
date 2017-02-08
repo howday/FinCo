@@ -32,7 +32,6 @@ public class WithdrawController {
 			try {
 				bank.withdraw(amount, (Account)account.get().clone());
 			} catch (CloneNotSupportedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

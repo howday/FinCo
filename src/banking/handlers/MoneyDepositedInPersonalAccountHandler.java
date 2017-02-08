@@ -20,9 +20,11 @@ public class MoneyDepositedInPersonalAccountHandler implements IEventHandler {
 
 			if (account.getAccountNumber().equals(myevt.account.getAccountNumber())) {
 				double diffAmount = account.getCurrentBalance() - myevt.account.getCurrentBalance();
-				System.out.println("Current  = " + account.getCurrentBalance());
-				System.out.println("From event  = " + myevt.account.getCurrentBalance());
 				account.setCurrentBalance(myevt.account.getCurrentBalance());
+				if (Math.abs(diffAmount) > 500) {
+					System.out.println("Deposit of sum greater than $500 is performed!!");
+					System.out.println("Sending email to : " + myevt.account.getCustomer().getName());
+				}
 			}
 		}
 
