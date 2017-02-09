@@ -1,7 +1,7 @@
 package banking.gui.controllers;
 
 import banking.gui.view.JDialog_AddPAcc;
-import framework.Account;
+import finco.Account;
 
 public class AddPAccController {
 	JDialog_AddPAcc jdpc;

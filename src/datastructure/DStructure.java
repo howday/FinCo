@@ -3,7 +3,7 @@ package datastructure;
 import java.util.ArrayList;
 import java.util.List;
 
-import framework.Account;
+import finco.Account;
 
 public class DStructure {
 	List<Account> list = new ArrayList<Account>();

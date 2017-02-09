@@ -7,7 +7,10 @@ import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import banking.gui.controllers.*;
 import datastructure.DStructure;
-import framework.IAccount;
+import finco.Account;
+import finco.DomainEventManager;
+import finco.IAccount;
+
 import java.awt.BorderLayout;
 
 import javax.swing.JOptionPane;
@@ -25,8 +28,6 @@ import banking.handlers.AccountCreatedEventHandler;
 import banking.handlers.InterestAddedEventHandler;
 import banking.handlers.MoneyDepositedInPersonalAccountHandler;
 import banking.handlers.MoneyWithdrawInPersonalAccontHandler;
-import framework.Account;
-import framework.DomainEventManager;
 
 /**
  * A basic JFC based application.

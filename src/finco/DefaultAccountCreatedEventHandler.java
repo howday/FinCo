@@ -1,10 +1,10 @@
-package framework;
+package finco;
 
 import banking.events.AccountCreatedEvent;
 import banking.events.InterestAddedEvent;
 import datastructure.DStructure;
-import framework.IDomainEvent;
-import framework.IEventHandler;
+import finco.IDomainEvent;
+import finco.IEventHandler;
 
 public class DefaultAccountCreatedEventHandler implements IEventHandler {
 	@Override

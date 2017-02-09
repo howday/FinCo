@@ -1,4 +1,4 @@
-package framework;
+package finco;
 
 public class DefaultCustomer extends Customer implements IPerson {
 

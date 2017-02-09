@@ -1,4 +1,4 @@
-package framework;
+package finco;
 /*
 		A basic implementation of the JDialog class.
 */

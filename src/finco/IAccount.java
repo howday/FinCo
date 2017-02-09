@@ -1,4 +1,4 @@
-package framework;
+package finco;
 
 /**
  * Interface for account and its hierarchy

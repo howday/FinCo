@@ -1,7 +1,7 @@
-package framework;
+package finco;
 
-import framework.Account;
-import framework.IDomainEvent;
+import finco.Account;
+import finco.IDomainEvent;
 
 public class DefaultAccountCreatedEvent implements IDomainEvent {
 	public Account account;

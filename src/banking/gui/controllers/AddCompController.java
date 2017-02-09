@@ -1,7 +1,7 @@
 package banking.gui.controllers;
 
 import banking.gui.view.JDialog_AddCompAcc;
-import framework.Account;
+import finco.Account;
 
 public class AddCompController {
 	JDialog_AddCompAcc companyFrame;

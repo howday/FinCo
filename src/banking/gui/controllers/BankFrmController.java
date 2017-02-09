@@ -1,8 +1,5 @@
 package banking.gui.controllers;
 
-import framework.DomainEventManager;
-import framework.IAccount;
-
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +14,8 @@ import banking.gui.view.JDialog_AddPAcc;
 import banking.gui.view.JDialog_Deposit;
 import banking.gui.view.JDialog_Withdraw;
 import datastructure.DStructure;
+import finco.DomainEventManager;
+import finco.IAccount;
 
 public class BankFrmController {
 

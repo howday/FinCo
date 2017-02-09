@@ -1,7 +1,7 @@
 package banking.events;
 
-import framework.Account;
-import framework.IDomainEvent;
+import finco.Account;
+import finco.IDomainEvent;
 
 public class AccountCreatedEvent implements IDomainEvent {
 	public Account account;

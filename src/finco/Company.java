@@ -1,4 +1,4 @@
-package framework;
+package finco;
 
 public class Company extends Customer implements IPerson {
 

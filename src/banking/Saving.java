@@ -1,8 +1,8 @@
 package banking;
 
 import banking.events.InterestAddedEvent;
-import framework.Account;
-import framework.DomainEventManager;
+import finco.Account;
+import finco.DomainEventManager;
 
 public class Saving extends Account {
 

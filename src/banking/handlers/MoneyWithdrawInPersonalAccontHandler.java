@@ -2,9 +2,9 @@ package banking.handlers;
 
 import banking.events.MoneyWithdrawInPersonalAccountEvent;
 import datastructure.DStructure;
-import framework.Account;
-import framework.IDomainEvent;
-import framework.IEventHandler;
+import finco.Account;
+import finco.IDomainEvent;
+import finco.IEventHandler;
 
 public class MoneyWithdrawInPersonalAccontHandler implements IEventHandler {
 

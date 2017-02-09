@@ -2,9 +2,9 @@ package banking.gui.controllers;
 
 import banking.Checking;
 import banking.Saving;
-import framework.Account;
-import framework.IAccount;
-import framework.Person;
+import finco.Account;
+import finco.IAccount;
+import finco.Person;
 
 public class PersonFactory {
 

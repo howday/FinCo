@@ -2,9 +2,9 @@ package banking.handlers;
 
 import banking.events.InterestAddedEvent;
 import datastructure.DStructure;
-import framework.IAccount;
-import framework.IDomainEvent;
-import framework.IEventHandler;
+import finco.IAccount;
+import finco.IDomainEvent;
+import finco.IEventHandler;
 
 public class InterestAddedEventHandler implements IEventHandler {
 

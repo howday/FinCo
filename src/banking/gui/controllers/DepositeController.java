@@ -8,7 +8,7 @@ import banking.Bank;
 import banking.gui.view.BankFrm;
 import banking.gui.view.JDialog_Deposit;
 import datastructure.DStructure;
-import framework.Account;
+import finco.Account;
 
 public class DepositeController {
 	JDialog_Deposit depositDialog;

@@ -3,8 +3,8 @@ package banking.handlers;
 import banking.events.AccountCreatedEvent;
 import banking.events.InterestAddedEvent;
 import datastructure.DStructure;
-import framework.IDomainEvent;
-import framework.IEventHandler;
+import finco.IDomainEvent;
+import finco.IEventHandler;
 
 public class AccountCreatedEventHandler implements IEventHandler {
 	@Override
