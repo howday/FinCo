@@ -38,7 +38,7 @@ public class DepositeController {
 			}
 		}
 		if(amount>500 && account.get().getCustomer().getCustomerType().equals("P"))
-			JOptionPane.showMessageDialog(null, "Email sent to"+ account.get().getCustomer().getName());
+			JOptionPane.showMessageDialog(null, "Email sent to : "+ account.get().getCustomer().getName());
 		
 		depositDialog.setVisible(false);
 	}
