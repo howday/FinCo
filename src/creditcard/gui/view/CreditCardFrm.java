@@ -84,10 +84,10 @@ public class CreditCardFrm extends javax.swing.JFrame {
 		JButton_PerAC.setText("Add CreditCard account");
 		JPanel1.add(JButton_PerAC);
 		JButton_PerAC.setBounds(24, 20, 192, 33);
-//		JButton_CompAC.setText("Add company account");
-//		JButton_CompAC.setActionCommand("jbutton");
-//		JPanel1.add(JButton_CompAC);
-//		JButton_CompAC.setBounds(240, 20, 192, 33);
+		// JButton_CompAC.setText("Add company account");
+		// JButton_CompAC.setActionCommand("jbutton");
+		// JPanel1.add(JButton_CompAC);
+		// JButton_CompAC.setBounds(240, 20, 192, 33);
 		JButton_Deposit.setText("Deposit");
 		JPanel1.add(JButton_Deposit);
 		JButton_Deposit.setBounds(468, 104, 96, 33);
@@ -127,7 +127,6 @@ public class CreditCardFrm extends javax.swing.JFrame {
 	 * The entry point for this application. Sets the Look and Feel to the
 	 * System Look and Feel. Creates a new JFrame1 and makes it visible.
 	 *****************************************************/
-	
 
 	javax.swing.JPanel JPanel1 = new javax.swing.JPanel();
 	javax.swing.JButton JButton_PerAC = new javax.swing.JButton();
@@ -196,9 +195,13 @@ public class CreditCardFrm extends javax.swing.JFrame {
 				}
 			}
 
-			else if (object == JButton_Addinterest)
-				(new CreditCardController(myframe)).JButtonAddinterest_actionPerformed(event);
-
+			else if (object == JButton_Addinterest) {
+				if (selection >= 0) {
+					(new CreditCardController(myframe)).JButtonAddinterest_actionPerformed(event);
+				} else {
+					JOptionPane.showMessageDialog(getParent(), "Please select an account!!");
+				}
+			}
 			updateView();
 
 		}

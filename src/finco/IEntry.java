@@ -13,5 +13,7 @@ public interface IEntry {
 	void setAccount(IAccount account);
 
 	IAccount getAccount();
+	
+	String getDepositerName();
 
 }

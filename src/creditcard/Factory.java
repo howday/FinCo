@@ -1,10 +1,16 @@
 package creditcard;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import banking.Checking;
 import banking.Saving;
 import banking.events.AccountCreatedEvent;
 import finco.Account;
 import finco.DomainEventManager;
+import finco.Entry;
+import finco.IEntry;
 import finco.Person;
 
 public class Factory {
@@ -20,7 +26,23 @@ public class Factory {
 		person.setZip(zip);
 		person.setEmail(email);
 		person.setBirthDate(birthDate);
-		
+		List<IEntry> lst= new ArrayList<IEntry>();
+		Random rand = new Random();
+		ArrayList<String> a= new ArrayList<String>();
+		a.add("Shopping");
+		a.add("Food");
+		a.add("SportsKit");
+		a.add("WallmartShopping");
+		a.add("Hyvee Shopping");
+		a.add("Car Repair");
+		int sum=0;
+		for(int i=0; i<4; i++)
+		{
+			 int  Amount = rand.nextInt(100) + 1;
+			 int index=rand.nextInt(5);
+			 sum=sum+Amount;
+			 lst.add(new Entry(Amount, a.get(index)));
+		}
 		Account account; 
 		if(accountType.equals("Gold"))
 			account = new Gold();
@@ -30,6 +52,8 @@ public class Factory {
 			account = new Bronze();
 		account.setCustomer(person);
 		account.setAccountNumber(accountnr);
+		account.setEntryList(lst);
+		account.setCurrentBalance(sum);
 		DomainEventManager.raise(new AccountCreatedEvent(account));
 	}
 

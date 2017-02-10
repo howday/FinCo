@@ -40,4 +40,10 @@ public class Entry implements IEntry {
 		return account;
 	}
 
+	@Override
+	public String getDepositerName() {
+		// TODO Auto-generated method stub
+		return depositerName;
+	}
+
 }
